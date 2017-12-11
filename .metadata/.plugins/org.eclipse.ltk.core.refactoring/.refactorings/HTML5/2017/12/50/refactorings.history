@@ -1,4 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;HTML5/WebContent/basics/semantics.jsp&apos; to &apos;semantics.html&apos;" description="Rename resource &apos;semantics.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WebContent/basics/semantics.jsp" name="semantics.html" stamp="1512994575227" updateReferences="true"/>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;HTML5/WebContent/basics/semantics.jsp&apos; to &apos;semantics.html&apos;" description="Rename resource &apos;semantics.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WebContent/basics/semantics.jsp" name="semantics.html" stamp="1512994575227" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;HTML5/WebContent/audio&amp;video/audio.jsp&apos; to &apos;audio.html&apos;" description="Rename resource &apos;audio.jsp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WebContent/audio&amp;video/audio.jsp" name="audio.html" stamp="1512994851863" updateReferences="true"/>
 </session>

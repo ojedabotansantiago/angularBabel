@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<script type="text/javascript">
+function retornarLienzo(x) {
+  var canvas = document.getElementById(x);
+  if (canvas.getContext) {
+    var lienzo = canvas.getContext("2d");   
+    return lienzo;
+  } else
+    return false;
+}
+
+function dibujarTriangulo(lienzo,x,y,base,altura) {
+  lienzo.save();
+  lienzo.translate(x,y);
+  lienzo.fillStyle="rgb(255,0,0)";
+  lienzo.beginPath();
+  lienzo.moveTo(base/2,0);
+  lienzo.lineTo(0,altura);
+  lienzo.lineTo(base,altura);
+  lienzo.lineTo(base/2,0);
+  lienzo.fill();
+  lienzo.restore();
+}
+
+function dibujar() {
+  var lienzo=retornarLienzo("lienzo1");
+  if (lienzo) {
+    for(var col=0;col<550;col+=30)
+      dibujarTriangulo(lienzo,col,10,30,130);
+  }
+}
+
+</script>
+
+</head>
+<body onLoad="dibujar()">
+<canvas id="lienzo1" width="600" height="600">
+Su navegador no permite utilizar canvas.
+</canvas>
+</body>
+</html>

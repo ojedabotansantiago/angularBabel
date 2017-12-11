@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+	document.addEventListener("offline", function(e) {
+		alert("Offline");
+	});
+	document.addEventListener("online", function(e) {
+		alert("Online")
+	});
+</script>
+</head>
+<body ononline="alert( 'Online');" onoffline="alert('Offline');">
+</body>
+</html>

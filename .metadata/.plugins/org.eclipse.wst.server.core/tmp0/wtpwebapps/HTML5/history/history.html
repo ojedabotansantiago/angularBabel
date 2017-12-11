@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>History API</title>
+    <style>
+        body {
+            font-family: 'Segoe UI';
+        }
+ 
+        article {
+            width: 50%;
+            margin: auto;
+        }
+ 
+        ul {
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <header>
+            <h1>History API</h1>
+        </header>
+        <ul>
+            <li>
+                <a href="/geek">Geek</a>
+            </li>
+            <li>
+                <a href="/nerd">Nerd</a>
+            </li>
+            <li>
+                <a href="/freak">Freak</a>
+            </li>          
+        </ul>
+        <output id="output"></output>
+        <button id="btnBack">Back</button>
+        <button id="btnForward">Forward</button>
+    </article>
+    <script>
+        function showData() {
+            var output = document.getElementById("output");
+ 
+            if (history.state)
+                output.innerHTML = "<ul><li><strong>Title</strong>: " + history.state.title +
+                                   "</li><li><strong>Description</strong>: " + history.state.description + "</li>" +
+                                   "<li><strong>URL</strong>: " + window.location + "</li>" +
+                                   "<li><strong>History length</strong>: " + history.length + "</li>";
+ 
+        }
+ 
+        (function () {
+ 
+            var data = {
+                "geek": {
+                    title: "Definición de Geek",
+                    description: "Geek (del inglés geek, pronunciado 'guik': IPA /gi:k/) es un término que se utiliza para referirse a la persona fascinada por la tecnología y la informática."
+                },
+                "nerd": {
+                    title: "Definición de Nerd",
+                    description: "Nerd o nerdo es un planteamiento que designa a un estereotipo de persona abocada completamente al estudio y la labor científica, informática e intelectual hasta el punto de mostrar desinterés por las actividades deportivas, físicas ó sociales. ..."
+                },
+                "freak": {
+                    title: "Definición de Freak",
+                    description: "Persona obsesionada con un determinado hobby hasta el punto de separarse de todo lo que se suele considerar normal y variar su propio aspecto. Hablamos de, por ejemplo, los góticos. No de Carmen de Mairena."
+                }
+            };
+ 
+            [].forEach.call(document.querySelectorAll("a"), function (item) {
+                item.addEventListener("click", function (e) {
+                    e.preventDefault();
+ 
+                    var title = item.innerText;
+ 
+                    history.pushState(data[title.toLowerCase()], title, item.getAttribute("href"));
+ 
+                    showData();
+                });
+            });
+ 
+            var btnBack = document.getElementById("btnBack"),
+            btnForward = document.getElementById("btnForward");
+ 
+            btnBack.addEventListener("click", function () {
+                history.back();
+            });
+ 
+            btnForward.addEventListener("click", function () {
+                history.forward();
+            });
+ 
+            window.onpopstate = function () {
+                showData();
+            };
+ 
+        })();
+    </script>
+</body>
+</html>
