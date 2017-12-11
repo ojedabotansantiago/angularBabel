@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script language="javascript">
+
+if ("WebSocket" in window) {
+  var ws = new WebSocket("ws://websockets.org:8787"); //this service bounces messages back
+  ws.onopen = function() {
+    // Web Socket is connected. You can send data by send() method.
+    ws.send("message to send"); 
+  };
+  ws.onmessage = function (evt) { var received_msg = evt.data; alert(evt.data);  };
+  ws.onclose = function() { /* websocket is closed.*/alert("WebSocket Closed!"); };
+}else{
+  // the browser doesn't support WebSocket.
+  alert("Websocket is not supported in your browser");
+}
+</script>
+
+</body>
+</html>

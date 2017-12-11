@@ -1,0 +1,23 @@
+<h3>Person List</h3>
+<div ng-controller="IndexCtrl">
+  <table>
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Age</td>
+        <td>Actions</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="person in persons">
+        <td>{{person.name}}</td>
+        <td>{{person.age}}</td>
+        <td><a href="#!persons/{{person.id}}">Details</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <input ng-model="inputData.name" id="nombre" placeholder="Nombre"/>
+  <input ng-model="inputData.age" id="edad" placeholder="Edad" type="number"/>
+  <input ng-model="inputData.id" id="idPerson" placeholder="ID" type="number"/>
+  <input ng-click="guardar()" value="Guardar" type="button"/>
+</div>

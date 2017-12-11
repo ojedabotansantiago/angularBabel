@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Estado online/offline</title>
+<script> 
+function updateIndicator() {
+var indicator = document.getElementById("indicator");
+indicator.textContent = navigator.onLine ? "online" : "offline"; 
+} 
+</script>
+</head>
+<body onload="updateIndicator()">
+	<p>
+		La red está <span id="indicator">(estado)</span>
+</body>
+</html>
